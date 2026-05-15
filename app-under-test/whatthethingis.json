@@ -1,0 +1,24 @@
+{
+  "name": "What the thing is?",
+  "repo": "https://github.com/tayloraleach/whatthethingis",
+  "localPath": "../whatthethingis",
+  "description": "Bare React Native object detection and translation app using the camera, Clarifai predictions, and Microsoft Translator.",
+  "platforms": {
+    "android": {
+      "applicationId": "com.aitranslator"
+    },
+    "ios": {
+      "bundleIdentifier": "org.reactjs.native.example.AITranslator"
+    }
+  },
+  "requiredSecrets": [
+    "CLARIFAI_API_KEY",
+    "MS_AZURE_TRANSLATOR_KEY"
+  ],
+  "primaryFlows": [
+    "Launch the camera-backed home screen.",
+    "Open settings and change the Clarifai model picker.",
+    "Tap the camera surface to run object detection and translation.",
+    "Reset after an image has been captured."
+  ]
+}

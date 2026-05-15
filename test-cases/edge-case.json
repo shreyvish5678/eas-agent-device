@@ -1,0 +1,41 @@
+{
+  "id": "TC-004",
+  "name": "Negative test: denied camera permission should not hang",
+  "category": "edge-case",
+  "goal": "Verify the app recovers gracefully when a detection attempt cannot capture a photo.",
+  "steps": [
+    "Launch the app.",
+    "Deny camera permission.",
+    "Tap the camera surface to trigger detection.",
+    "Wait for the app to recover or show an actionable message."
+  ],
+  "agent_actions": [
+    {
+      "type": "launch_app"
+    },
+    {
+      "type": "deny_camera_permission"
+    },
+    {
+      "type": "tap_camera_surface"
+    },
+    {
+      "type": "wait",
+      "value": "3s"
+    },
+    {
+      "type": "observe_screen"
+    }
+  ],
+  "expected_result": "When capture is unavailable, the app should stop loading and present a recoverable state or clear permission guidance.",
+  "success_criteria": [
+    "The app does not remain indefinitely loading.",
+    "The user can retry, grant permission, or return to the idle home state.",
+    "The app does not crash."
+  ],
+  "ground_truth": {
+    "expected_verdict": "failed",
+    "rationale": "The current detection handler sets loading true before capture and does not reset loading when no photo is returned.",
+    "known_failure_mode": "Camera-denied capture path can leave the full-screen loading indicator visible indefinitely."
+  }
+}

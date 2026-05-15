@@ -1,0 +1,31 @@
+{
+  "id": "TC-001",
+  "name": "Smoke test: app launches to home camera screen",
+  "category": "smoke",
+  "goal": "Verify the app launches without crash and shows the main camera-based home screen.",
+  "steps": [
+    "Launch the app.",
+    "Wait for the home screen.",
+    "Identify the main UI elements."
+  ],
+  "agent_actions": [
+    {
+      "type": "launch_app"
+    },
+    {
+      "type": "observe_screen"
+    }
+  ],
+  "expected_result": "The home screen loads without crash or blank screen and shows the settings entry point, camera preview area, language direction, and initial guidance text.",
+  "success_criteria": [
+    "No crash is observed.",
+    "No blank screen is observed.",
+    "The visible UI includes Model: General.",
+    "The visible UI includes en to es language direction.",
+    "The visible UI includes the initial tap-to-detect guidance."
+  ],
+  "ground_truth": {
+    "expected_verdict": "passed",
+    "rationale": "The source-backed launch state exposes the settings button, camera region, language labels, and initial carousel guidance."
+  }
+}

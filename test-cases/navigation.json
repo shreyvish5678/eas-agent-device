@@ -1,0 +1,33 @@
+{
+  "id": "TC-002",
+  "name": "Navigation test: open model settings",
+  "category": "navigation",
+  "goal": "Verify the user can navigate from the home screen into the model settings modal.",
+  "steps": [
+    "Launch the app.",
+    "Tap the settings button.",
+    "Confirm the model picker is visible."
+  ],
+  "agent_actions": [
+    {
+      "type": "launch_app"
+    },
+    {
+      "type": "tap_settings"
+    },
+    {
+      "type": "observe_screen"
+    }
+  ],
+  "expected_result": "The settings modal opens and presents model choices for General, Food, and Travel.",
+  "success_criteria": [
+    "The settings modal is visible.",
+    "The modal contains a Model label.",
+    "The picker exposes General, Food, and Travel options.",
+    "The app remains on the same QA flow without crash."
+  ],
+  "ground_truth": {
+    "expected_verdict": "passed",
+    "rationale": "The SettingsButton toggles SettingsModal, and the modal renders a model picker with General, Food, and Travel options."
+  }
+}

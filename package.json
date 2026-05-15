@@ -9,7 +9,10 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "expo lint",
-    "agent-qa": "node ./scripts/agent-qa/index.ts"
+    "agent-qa": "node ./scripts/agent-qa/index.ts",
+    "qa:agent": "node ./agent/run-agent.ts",
+    "qa:eval": "node ./eval/run-eval.ts",
+    "qa:eval:mock": "QA_MODEL_PROVIDER=mock QA_MODEL_CONFIGS=mock-adjudicator npm run qa:eval"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",

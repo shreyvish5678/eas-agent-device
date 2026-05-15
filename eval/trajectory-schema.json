@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/ai-qa-agent-challenge/trajectory-schema.json",
+  "title": "AI QA Agent Trajectory",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "runId",
+    "generatedAt",
+    "testCaseId",
+    "model",
+    "driver",
+    "appUnderTest",
+    "prompt",
+    "actions",
+    "finalVerdict",
+    "groundTruth",
+    "matchedGroundTruth",
+    "metrics"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "runId": {
+      "type": "string"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "testCaseId": {
+      "type": "string"
+    },
+    "testCaseName": {
+      "type": "string"
+    },
+    "model": {
+      "type": "object",
+      "required": [
+        "id",
+        "provider",
+        "label"
+      ]
+    },
+    "driver": {
+      "enum": [
+        "source",
+        "agent-device"
+      ]
+    },
+    "appUnderTest": {
+      "type": "object"
+    },
+    "prompt": {
+      "type": "string"
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "action",
+          "ok",
+          "screen",
+          "visibleText",
+          "notes",
+          "state",
+          "timestamp"
+        ]
+      }
+    },
+    "finalVerdict": {
+      "type": "object",
+      "required": [
+        "verdict",
+        "summary",
+        "failure_reason",
+        "confidence",
+        "observed_success_criteria",
+        "missed_or_risky_criteria"
+      ]
+    },
+    "rawModelResponse": {
+      "type": "string"
+    },
+    "groundTruth": {
+      "type": "object",
+      "required": [
+        "expected_verdict",
+        "rationale"
+      ]
+    },
+    "matchedGroundTruth": {
+      "type": "boolean"
+    },
+    "metrics": {
+      "type": "object",
+      "required": [
+        "latencyMs",
+        "modelLatencyMs",
+        "costUsd",
+        "inputTokens",
+        "outputTokens",
+        "totalTokens",
+        "stepCount",
+        "retryCount",
+        "screenshotCount"
+      ]
+    }
+  }
+}

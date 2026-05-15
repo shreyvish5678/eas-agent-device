@@ -1,0 +1,42 @@
+{
+  "id": "TC-003",
+  "name": "Form/input test: change model picker to Travel",
+  "category": "form-input",
+  "goal": "Verify the settings picker accepts a model selection and reflects it after closing settings.",
+  "steps": [
+    "Launch the app.",
+    "Open settings.",
+    "Select Travel in the model picker.",
+    "Dismiss settings.",
+    "Confirm the home screen reflects the selected model."
+  ],
+  "agent_actions": [
+    {
+      "type": "launch_app"
+    },
+    {
+      "type": "tap_settings"
+    },
+    {
+      "type": "select_model",
+      "value": "Travel"
+    },
+    {
+      "type": "dismiss_modal"
+    },
+    {
+      "type": "observe_screen"
+    }
+  ],
+  "expected_result": "The model picker updates the selected model to Travel, and the home screen settings label changes to Model: Travel.",
+  "success_criteria": [
+    "The picker action is accepted.",
+    "The settings modal can be dismissed.",
+    "The home screen shows Model: Travel after dismissal.",
+    "The app does not crash while changing picker state."
+  ],
+  "ground_truth": {
+    "expected_verdict": "passed",
+    "rationale": "The selected picker value updates clarifaiModelName and SettingsButton renders the nice name Travel."
+  }
+}
